@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="alias-ques" method="post">
+
+
+<h1 class="govuk-heading-l">Key roles in your organisation</h1>
+
+<p>You will be asked for details for your:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>key contact</li>
+  <li>authorising officer</li>
+  <li>safeguarding lead</li>
+</ul>
+
+<p>The roles can be filled by board members or others in your organisation.</p>
+
+{{ govukInput({
+  label: {
+    text: "What is the key contact's full name?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "This is usually your operations lead"
+  },
+  id: "event-name",
+  name: "eventName"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

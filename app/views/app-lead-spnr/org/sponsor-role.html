@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="uploaded" method="post">       
+
+<h1 class="govuk-heading-l">Delivering the lead sponsor role</h1>
+
+<p>Explain how you will:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>recruit community sponsors, employers or education providers</li>
+  <li>assess organisations and make sure they meet safeguarding standards</li>
+  <li>manage the risk of sponsorship breakdown (for example through mediation)</li>
+  <li>demonstrate financial suitability</li>
+  <li>support sponsor groups through training and guidance and ongoing advice</li>
+</ul>
+
+<h2 class="govuk-heading-m">Upload a document explaining how your organisation will deliver the lead sponsor role</h2>
+
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  label: {
+    text: "Upload a file"
+  },
+  javascript: true
+}) }}
+
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What files can I upload
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can upload the following file types:
+<ul c;ass="govuk-list govuk-list--bullet">
+  <li>CSV (.csv)</li>
+  <li>image (.jpg. .jpg, .png)</li>
+  <li>Microsoft Excel Spreadsheet (.xlsx)</li>
+  <li>Mircosoft Word Document (.doc, .docx)</li>
+  <li>PDF (.pdf</li>
+  <li>text (.json, .odt, ,rft, .txt)</li>
+</ul>
+
+<p>Your file must be smaller than 7MB</p>
+  </div>
+</details>
+
+    </div>
+  </div>
+
+{% endblock %}

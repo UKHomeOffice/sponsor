@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="key-ctc-alias-ques-1" method="post">
+
+{{ govukRadios({
+  name: "aliasOne",
+  fieldset: {
+    legend: {
+      text: "Has the authorising officer been known by any other name?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, a name used before marriage or a civil partnership, or another name they have been known by"
+  },
+  items: [
+    {
+      value: "yes~add-alias",
+      text: "Yes"
+    },
+    {
+      value: "no~dob",
+      text: "No"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

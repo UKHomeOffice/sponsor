@@ -1,0 +1,148 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Apply to be a lead sponsor
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block header %}
+  <header>
+    {{govukHeader()}}
+  </header>
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Lead sponsor eligibility
+      </h1>
+
+  <h2 class="govuk-heading-m">What is a lead sponsor?</h2>
+
+      <p>A lead sponsor is a charity approved to suport community sponsor groups.</p>
+
+      <p>
+      The role includes:
+    </p>
+     
+<ul class="govuk-list govuk-list--bullet">
+      <li>completing suitability checks on community sponsors</li>
+      <li>helping community sponsors prepare and submit applications</li>
+      <li>acting as the main point of contact between community sponsors and the Home Office</li>
+      <li>providing advice and support to community sponsors</li>
+    </ul>
+
+  <h2 class="govuk-heading-m">Who can apply?</h2>
+
+    <p>Only registered charities can apply to be a lead sponsor. You cannot apply as an individual or sole trader.</p>
+
+  <h2 class="govuk-heading-m">Before you start</h2>
+
+  <p>You will need to provide:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+      <li>your organisations' details, including name, address and website</li>
+      <li>your charity number</li>
+      <li>details of ket people, including name, date of birth and nationality</li>
+    </ul>
+
+<p>You will also need to upload a copy of your:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+      <li>annual accounts</li>
+      <li>safeguarding policy</li>
+      <li>complaints procedure</li>
+    </ul>
+
+
+  
+      <p>You cannot apply as an individual or sole trader</p>
+  
+  <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p>You will need to provide:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        <li>your organisation details, including name, address and website</li>
+        <li>your charity number</li>
+        <li>details of key personnel, including name, date of birth and nationality</li>
+      </ul>
+
+  <p>You will also need to upload a copy of your:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+      <li>annual accounts</li>
+      <li>safeguarding policy</li>
+      <li>complaints procedure</li>
+    </ul>
+
+    <p>You will not be able to save your application. Make sure you have this information ready before you start.</p>
+
+<p>It will take around <strong><span style="background-color: #FFFF00">[X]</span></strong> minutes to complete.</p>
+
+
+      {{ govukButton({
+        text: "Start now",
+        href: "org/eligibile",
+        isStartButton: true
+      }) }}
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

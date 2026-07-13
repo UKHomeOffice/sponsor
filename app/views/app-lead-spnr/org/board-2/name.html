@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="nationality" method="post">
+
+{{ govukInput({
+  label: {
+    text: "What's the board member's name? (2 of up to 15)",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  id: "charity-number",
+  name: "charityNumber"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

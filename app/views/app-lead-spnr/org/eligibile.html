@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Lead sponsor eligibility
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block containerStart %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="" method="post">
+ 
+
+    <h1 class="govuk-heading-l">Lead sponsor eligibility</h1>
+
+    <p>To be eligible, your organisation must:</p>
+    
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>be a registered legal entity</li>
+      <li>be based and operate in the UK</li>
+      <li>have the capability, resources and networks to act as a lead sponsor</li>
+      <li>be able to support multiple sponsor groups</li>
+      <li>have a governance board where the majority of members are British citizens or Irish citizens</li>
+    </ul>
+
+<p>Your oganisation must also have:</p>
+
+ <ul class="govuk-list govuk-list--bullet">
+      <li>a complaints procedure</li>
+      <li>data protection and safeguarding policies</li>
+    </ul>
+
+    {{ govukRadios({
+    name: "eligible",
+    fieldset: {
+    legend: {
+    text: "Does your organisation meet all the eligibility criteria?",
+
+    classes: "govuk-fieldset__legend--m"
+    }
+    },
+    items: [
+    {
+    value: "yes~route",
+    text: "Yes"
+    },
+    {
+    value: "no~exit",
+    text: "No"
+    }
+    ]
+    }) }}
+
+
+    {{ govukButton({
+    text: "Continue"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}

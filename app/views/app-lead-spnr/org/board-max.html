@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="../key-ctc/name" method="post">
+
+<h1 class="govuk-heading-l">You have added the maximum number of board members</h1>
+
+<p>You can add up to 15 board members as part of this form.</p>
+
+<p>If your organisation has more than 15 board members, you will need to provide an email address that we can use to contact you.</p>
+
+{{ govukInput({
+  label: {
+    text: "What email address should we use to contact you about the additional board members?",
+    classes: "govuk-fieldset__legend--m"
+  },
+  id: "org-name",
+  name: "orgName"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

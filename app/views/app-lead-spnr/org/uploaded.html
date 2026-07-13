@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="board-1/name" method="post">
+
+{% call govukNotificationBanner({
+  type: "success"
+}) %}
+  <h3 class="govuk-notification-banner__heading">
+    Your file has been uploaded
+  </h3>
+{% endcall %}       
+
+        
+<h1 class="govuk-heading-l">Upload a document explaining how your organisation will deliver the lead sponsor role</h1>
+
+<h2 class="govuk-heading-m">Check your uploaded file</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Your file"
+      },
+      value: {
+        text: "image.png"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "change"
+          }
+        ]
+      }
+    }
+    
+  ]
+}) }}
+
+
+<p>You can remove this file if you need to upload a different one.</p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

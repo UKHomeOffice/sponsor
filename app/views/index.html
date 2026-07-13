@@ -2,18 +2,94 @@
 
 {% set pageName="Home" %}
 
+{% block pageTitle %}
+Safe and legal design history
+{% endblock %}
+
+{% set serviceName %}
+Safe and legal design history
+{% endset %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+  
 
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-l">
       {{ serviceName }}
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+  <p>Restoring Order and Control (ROC), includes a number of measures aimed at restoring fairness and public confidence in the asylum system. </p>
+
+  <p>The 'Safe and legal' stream will support vulnerable people in need of protection.</p>
+
+  <p>Community groups will sponsor vulnerable people to come to the UK. The Lead Sponsor will facilitate the initial training of community groups and complete suitability.</p>
+  
+  <p>A sponsoring organisation will need to be accredited by the Home Office before they are able to sponsor a community group. Lead sponsors will be required to apply for accreditation by completing an online form.</p>
+
+  <p>The screens in this design history show how the product has changed over time. </p>
+
+  <h2 class="govuk-heading-m">Lead sponsor application form</h2>
+
+ <p>Organisations must use this form to apply to be a Lead Sponsor.</p>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Minimum viable product (MVP)</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Screen</th>
+      <th scope="col" class="govuk-table__header">Description</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Start</th>
+      <td class="govuk-table__cell"><span class="govuk-caption-m">GOV.UK</span><a href="app-lead-spnr/gov-start.html">Start an application</a> explains what is required to be a Lead Sponsor. </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Support</th>
+      <td class="govuk-table__cell"><span class="govuk-caption-m">GOV.UK Form</span><a href="app-lead-spnr/org-beneficiaries">Support beneficiares</a> asks if the organisation is able to support a minimum number of community groups.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Bankrupt</th>
+      <td class="govuk-table__cell"><a href="app-lead-spnr/bankrupt">Bankruptcy</a> of anyone involved with the organisation needs to be declared.</td>
+    </tr>
+    
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Complaints</th>
+      <td class="govuk-table__cell">Confirmation the organisation has a <a href="app-lead-spnr/complaints">compliants procedure</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding</th>
+      <td class="govuk-table__cell">A <a href="app-lead-spnr/safeguarding">safeguarding procedure</a> is required by the organisation.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Name</th>
+      <td class="govuk-table__cell">The user add the  <a href="app-lead-spnr/org-name">organisation's name</a>.</td>
+
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Type</th>
+      <td class="govuk-table__cell">The user is required to indicate if the organisation is a <a href="app-lead-spnr/org-type">charity or company</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Charity</th>
+      <td class="govuk-table__cell">The <a href="app-lead-spnr/org-charity-nbr">charity number</a> is added.</td>
+    </tr>
+
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Company</th>
+      <td class="govuk-table__cell">The <a href="app-lead-spnr/org-charity-nbr">company number</a> is added.</td>
+    </tr>
+  </tbody>
+</table>
+
   </div>
 </div>
 
