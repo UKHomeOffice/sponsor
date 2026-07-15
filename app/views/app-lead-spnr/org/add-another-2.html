@@ -4,16 +4,16 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% set serviceName %}
+Apply to be a lead a sponsor
+{% endset %}
+
 {% block containerStart %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
-
-{% set serviceName %}
-Apply to be a lead a sponsor
-{% endset %}
 
 {% block content %}
 
@@ -22,22 +22,25 @@ Apply to be a lead a sponsor
 
       <form class="form" action="" method="post">
 
+
+
 {{ govukRadios({
-  name: "whereDoYouLive",
+  classes: "govuk-radios",
+  name: "changedName",
   fieldset: {
     legend: {
-      text: "Does the key contact have a UK driving licence?",
-      isPageHeading: true,
+      text: "Do you want to add another board member?",
       classes: "govuk-fieldset__legend--l"
     }
   },
+ 
   items: [
     {
-      value: "yes~driving-nbr",
+      value: "yes~charity-nbr",
       text: "Yes"
     },
     {
-      value: "no~email",
+      value: "no~../../key-ctc/name",
       text: "No"
     }
   ]
