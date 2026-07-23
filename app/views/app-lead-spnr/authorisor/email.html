@@ -20,12 +20,14 @@ Apply to be a lead sponsor
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="../dupe-roles/authorisor-safeguarding" method="post">
+      <form class="form" action="../dupe-roles/key-ctc-safeguarding" method="post">
 
 <h1 class="govuk-heading-l">What is the authorising officer's email address?</h1>
 
 {{ govukInput({
-  
+  hint: {
+    text: "We will use this email address to contact them while they are in this role"
+  }, 
   id: "key-ctc-email",
   name: "keyCtcEmail"
 }) }}

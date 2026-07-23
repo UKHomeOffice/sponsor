@@ -19,31 +19,21 @@ href: "javascript:window.history.back()"
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="" method="post">
+    <form class="form" action="added-org-2" method="post">
  
-
-    <h1 class="govuk-heading-l">Which refugee sponsorship route is your organisation applying for?</h1>
-
-    {{ govukRadios({
-    name: "route",
-    fieldset: {
-    legend: {
-    text: "",
-    classes: "govuk-fieldset__legend--m"
-    }
-    },
-    items: [
-    {
-    value: "Study route~name",
-    text: "Study route"
-    },
-    {
-    value: "Named route~name",
-    text: "Named route"
-    }
-    ]
-    }) }}
-
+{{ govukInput({
+  label: {
+    text: "What are the names of the other organisations?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Enter one organisation name and you can add another later"
+  },
+  id: "consortium2",
+  name: "consortium2"
+}) }}
+   
 
     {{ govukButton({
     text: "Continue"

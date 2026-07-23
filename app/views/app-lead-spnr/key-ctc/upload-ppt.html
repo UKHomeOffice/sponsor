@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead sponsor
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="uploaded" method="post">       
+
+<h1 class="govuk-heading-l">Upload an identity document for the key contact</h1>
+
+<p>Upload a photo or scan of the identity document you want to use.</p>
+
+<p>The image must be:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>in colour</li>
+  <li>clear and easy to read</li>
+  <li>the original document, not a screenshot or photocopy</li>
+  <li>free from filters or digial editing</li>
+  <li>horizontal (landscape)</li>
+</ul>
+
+<h2 class="govuk-heading-m">Upload an image of their passport</h2>
+
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  label: {
+    text: "Upload a file"
+  },
+  javascript: true
+}) }}
+
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What files can I upload
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can upload the following file types:
+<ul c;ass="govuk-list govuk-list--bullet">
+  <li>CSV (.csv)</li>
+  <li>image (.jpg. .jpg, .png)</li>
+  <li>Microsoft Excel Spreadsheet (.xlsx)</li>
+  <li>Mircosoft Word Document (.doc, .docx)</li>
+  <li>PDF (.pdf</li>
+  <li>text (.json, .odt, ,rft, .txt)</li>
+</ul>
+
+<p>Your file must be smaller than 7MB</p>
+  </div>
+</details>
+
+    </div>
+  </div>
+
+{% endblock %}

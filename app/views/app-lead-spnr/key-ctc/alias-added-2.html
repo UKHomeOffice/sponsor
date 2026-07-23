@@ -4,16 +4,17 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set serviceName %}
-Apply to be a lead sponsor
-{% endset %}
-
 {% block containerStart %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
+
+{% set serviceName %}
+Apply to be a lead sponsor
+{% endset %}
+
 
 {% block content %}
 
@@ -22,25 +23,50 @@ Apply to be a lead sponsor
 
       <form class="form" action="" method="post">
 
+        
+<h1 class="govuk-heading-l">You have added 2 answer</h1>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "1"
+      },
+      value: {
+        text: data["nameAlias"]
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
 
 
 {{ govukRadios({
-  classes: "govuk-radios",
+  classes: "govuk-radios--inline",
   name: "changedName",
   fieldset: {
     legend: {
-      text: "Do you want to add another board member?",
-      classes: "govuk-fieldset__legend--l"
+      text: "Do you need to add another answer?",
+      classes: "govuk-fieldset__legend--m"
     }
   },
  
   items: [
     {
-      value: "yes~board-max",
+      value: "yes",
       text: "Yes"
     },
     {
-      value: "no~../../key-ctc/name",
+      value: "No~dob",
       text: "No"
     }
   ]

@@ -22,7 +22,7 @@ Apply to be a lead sponsor
 
       <form class="form" action="nationality" method="post">
 
-<h1 class="govuk-heading-l">Board member details (1 of up to 15)</h1>
+<h1 class="govuk-heading-l">Board member details</h1>
 
 <p>You will need to add some more information about this board member after you have entered their name.</p>
 
@@ -39,12 +39,15 @@ Apply to be a lead sponsor
 <p>If your board has more than 15 members, enter the first 15. You will then need to provide an email address so we can contact you to collect the details of the remaining board members.</p>
 {{ govukInput({
   label: {
-    text: "What is the board member's name?",
+    text: "What is the board member's full name? (1 of up to 15)",
     classes: "govuk-label--m",
     isPageHeading: true
   },
-  id: "charity-number",
-  name: "charityNumber"
+  hint: {
+    text: "Enter their full name as shown on the passport or other identity document"
+  },
+  id: "member-1",
+  name: "member1"
 }) }}
 
 {{ govukButton({

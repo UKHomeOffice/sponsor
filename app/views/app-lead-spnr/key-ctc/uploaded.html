@@ -8,7 +8,6 @@
 Apply to be a lead sponsor
 {% endset %}
 
-
 {% block containerStart %}
   {{ govukBackLink({
     text: "Back",
@@ -21,26 +20,36 @@ Apply to be a lead sponsor
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="email" method="post">
+
+{% call govukNotificationBanner({
+  type: "success"
+}) %}
+  <h3 class="govuk-notification-banner__heading">
+    Your file has been uploaded
+  </h3>
+{% endcall %}       
 
         
-<h1 class="govuk-heading-l">You have added one answer</h1>
+<h1 class="govuk-heading-l">Upload an image of the identity document for the key contact</h1>
+
+<h2 class="govuk-heading-m">Check your uploaded file</h2>
 
 
 {{ govukSummaryList({
   rows: [
     {
       key: {
-        text: "1"
+        text: "Your file"
       },
       value: {
-        text: data["consortium1"]
+        text: "passport.png"
       },
       actions: {
         items: [
           {
             href: "#",
-            text: "Change",
+            text: "Remove",
             visuallyHiddenText: "change"
           }
         ]
@@ -51,27 +60,7 @@ Apply to be a lead sponsor
 }) }}
 
 
-{{ govukRadios({
-  classes: "govuk-radios--inline",
-  name: "consortiumName1",
-  fieldset: {
-    legend: {
-      text: "Do you need to add another answer?",
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
- 
-  items: [
-    {
-      value: "yes~consortium-name-2",
-      text: "Yes"
-    },
-    {
-      value: "no~sponsor-role",
-      text: "No"
-    }
-  ]
-}) }}
+<p>You can remove this file if you need to upload a different one.</p>
 
         {{ govukButton({
           text: "Continue"

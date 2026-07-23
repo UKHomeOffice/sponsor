@@ -26,9 +26,18 @@ Apply to be a lead sponsor
 <h1 class="govuk-heading-l">What is the key contact's email address?</h1>
 
 {{ govukInput({
+
   
+  hint: {
+    text: "We will use this email address to contact them while they are in this role"
+  },
+
   id: "key-ctc-email",
-  name: "keyCtcEmail"
+  name: "keyCtcEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false
+  
 }) }}
 
 {{ govukButton({
