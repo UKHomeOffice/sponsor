@@ -23,7 +23,7 @@ Apply to be a lead sponsor
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="alias-ques" method="post">
+      <form class="form" action="check-answers" method="post">
 
 {{ govukRadios({
   name: "aliasOne",
@@ -36,7 +36,7 @@ Apply to be a lead sponsor
   },
   items: [
     {
-      value: "yes~add-alias",
+      value: "yes~../check-answers",
       text: "Yes"
     },
     {
