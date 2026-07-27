@@ -1,0 +1,1007 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead sponsor
+{% endset %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+
+{% set months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+] %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <!--<a href="#" class="govuk-back-link">Back</a>-->
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+         <form class="form" action="sned-email" method="post">
+        <h1 class="govuk-heading-l">Check your answers before submitting your form</h1>
+<!--organisation-->  
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does your organisation meet all the eligibility criteria?
+            </dt>
+            <dd class="govuk-summary-list__value">
+               {{ data['eligible']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/eligibile">Change<span class="govuk-visually-hidden">eligibility</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Which refugee sponorship route is your organisation applying for?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['route'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/route">Change<span class="govuk-visually-hidden"> route</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the name of your organisation?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['orgName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/name">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does your organisation have a charity nuumber?
+            </dt>
+            <dd class="govuk-summary-list__value">
+             {{ data['charity'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/charity">Change<span class="govuk-visually-hidden"> charity status</span></a>
+            </dd>
+          </div>
+
+    {% if (data['charity'] == "Yes") %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is your charity nuumber?
+            </dt>
+            <dd class="govuk-summary-list__value">
+             {{ data['charityNumber'] }}           
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/charity-nbr">Change<span class="govuk-visually-hidden"> charity status</span></a>
+            </dd>
+          </div>
+    {% endif %}
+     
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does your organisation have a company number?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['company'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/company">Change<span class="govuk-visually-hidden"> company status</span></a>
+            </dd>
+          </div>
+
+      {% if (data['company'] == "Yes") %}         
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is your company number?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['companyNumber'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/company-nbr">Change<span class="govuk-visually-hidden"> company number</span></a>
+            </dd>
+          </div>
+      {% endif %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             What is your organisation's registered address in the UK?
+            </dt>
+            <dd class="govuk-summary-list__value">
+                 {{ data["addressLine1"] }}
+                   {% if data["addressLine2"] %}, 
+                     {{ data["addressLine2"] }}
+                   {% endif %},
+                 {{ data["addressTown"] }}
+                  {% if data["addressCounty"] %}, 
+                    {{ data["addressCounty"] }}
+                  {% endif %},
+                {{ data["addressPostcode"] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/address">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is your organisation's website (optional)
+            </dt>
+            <dd class="govuk-summary-list__value">
+             {% if data['website'] %}
+              {{ data['website'] }}
+             {% else %}Not provided {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/website">Change<span class="govuk-visually-hidden"> website</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you working with any other organisations as part of a consortium?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+              {{ data['consortium'] }}      
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/consortium">Change<span class="govuk-visually-hidden"> consortium</span></a>
+            </dd>
+          </div>
+
+    {% if (data['consortium'] == "Yes") %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What are the names of the other organisations?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+              {{ data['consortium1'] }} <br> {{ data['consortium2'] }}     
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/consortium-name-1">Change<span class="govuk-visually-hidden"> consortium</span></a>
+            </dd>
+          </div>
+     {% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Upload a document explaining how your organisation will deliver the lead sponsor
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+              Lead sponsor role.docx   
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/sponsor">Change<span class="govuk-visually-hidden"> sponsor role</span></a>
+            </dd>
+          </div>
+
+<!--board member 1-->
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's name? (1 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['member1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-1/name">Change<span class="govuk-visually-hidden"> board member 1 name</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's nationality? (1 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['natMem1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> board member 1 nationality</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does the board member have a passport? (1 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['pptMem1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-1/ppt">Change<span class="govuk-visually-hidden"> board memeber 1 passport</span></a>
+            </dd>
+          </div>
+
+ {% if data ['pptMem1'] == "Yes" %}       
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's passport number? (1 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['pptNbrMem1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-1/ppt-nbr">Change<span class="govuk-visually-hidden"> board member 1 passport number</span></a>
+            </dd>
+          </div>
+{% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's date of birth? (1 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['dob-day'] }}/{{ data['dob-month'] }}/{{ data['dob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#org/board-1/dob">Change<span class="govuk-visually-hidden"> board member 1 date of birth</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you want to add another board member?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['add-board-2'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-1/add-another">Change<span class="govuk-visually-hidden"> add board member 2</span></a>
+            </dd>
+         </div>
+
+
+<!--board member 2-->
+{% if data ['add-board-2'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's name? (2 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['memberName2'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-2/name">Change<span class="govuk-visually-hidden"> board member 2 name</span></a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's nationality? (2 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+               {{ data['natMem2'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-2/nationality">Change<span class="govuk-visually-hidden"> board member nationality</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does the board member have a passport? (2 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['memberPpt2'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-2/ppt">Change<span class="govuk-visually-hidden"> board member 2 passport</span></a>
+            </dd>
+          </div>
+
+ {% if data ['memberPpt2'] == "Yes" %}       
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's passport number? (2 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['memberPPtNbr2'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-2/ppt-nbr">Change<span class="govuk-visually-hidden"> board member 2 passport number</span></a>
+            </dd>
+          </div>
+{% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's date of birth? (2 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['member2dob-day'] }}/{{ data['member2dob-month'] }}/{{ data['member2dob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-2/dob">Change<span class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you want to add another board member?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['add-board-3'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-2/add-another-2">Change<span class="govuk-visually-hidden"> add board member 3</span></a>
+            </dd>
+         </div>
+
+<!--board member 3-->
+
+{% if data ['add-board-3'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's name? (3 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['memberName3'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-3/name">Change<span class="govuk-visually-hidden"> board member 3 name</span></a>
+            </dd>
+          </div>
+{% endif %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's nationality? (3 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['natMem3'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-3/nationality">Change<span class="govuk-visually-hidden"> board member 3 nationality</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does the board member have a passport? (3 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['memberPpt3'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org/board-3/ppt">Change<span class="govuk-visually-hidden"> passport status</span></a>
+            </dd>
+          </div>
+
+{% if data ['memberPpt3'] == "Yes" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's passport number? (3 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['memberPptNbr3'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> consortium</span></a>
+            </dd>
+          </div>
+{% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the board member's date of birth? (3 of up to 15)
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['member3dob-day'] }}/{{ data['member3dob-month'] }}/{{ data['member3dob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> consortium</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you want to add another board member?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['anotherMem3'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> consortium</span></a>
+            </dd>
+         </div>
+
+
+<!--contact email for more board members-->
+
+{% if data ['anotherMem3'] == "Yes" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What email address should we use to contact you about the additional board members?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['boardMax'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> consortium</span></a>
+            </dd>
+         </div>
+{% endif %}
+{% endif %}
+
+<!--key contact details-->
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the key contact's full name?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyCtcName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/name">Change<span class="govuk-visually-hidden"> key contact name</span></a>
+            </dd>
+         </div>
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has the key contact been known by any other name?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['aliasOne'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/alias-ques">Change<span class="govuk-visually-hidden"> key contact other name</span></a>
+            </dd>
+         </div>
+
+{% if data['aliasOne'] == "Yes" %}        
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What other name has the key contact used?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['nameAlias'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/add-alias">Change<span class="govuk-visually-hidden"> key contact alias name</span></a>
+            </dd>
+         </div>
+{% endif %}
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the key contact's date of birth?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyctcdob-day'] }}/{{ data['keyctcdob-month'] }}/{{ data['keyctcdob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/dob">Change<span class="govuk-visually-hidden"> key contact date of birth</span></a>
+            </dd>
+         </div>
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the key contact's nationality?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyCtcNat'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/nationality">Change<span class="govuk-visually-hidden"> key contact nationality</span></a>
+            </dd>
+         </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you uploading the key contact's passport?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyCtcPpt'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/ppt">Change<span class="govuk-visually-hidden"> upload passport</span></a>
+            </dd>
+         </div>
+
+ {% if data['keyCtcPpt'] == "Yes" %}        
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the key contact's passport number?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyCtcPptNbr'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/ppt-nbr">Change<span class="govuk-visually-hidden"> passport number</span></a>
+            </dd>
+         </div>
+
+   {% else %}  
+
+       <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you uploading the key contact's driving licence?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyCtcDrive'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/drive">Change<span class="govuk-visually-hidden"> driving licence status</span></a>
+            </dd>
+        </div>
+
+{% endif %}
+
+{% if data['keyCtcDrive'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the key contact's driving licence number?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['keyCtcDriveNbr'] }} 
+            </dd> 
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/drive-nbr">Change<span class="govuk-visually-hidden"> driving licence number</span></a>
+            </dd>
+        </div>
+{% endif %}
+
+
+{% if data['keyCtcPpt'] == "Yes" or data['keyCtcDrive'] == "Yes" %}
+       <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Upload an image of the identity document for the key contact
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                identity.jpeg 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/upload-ppt">Change<span class="govuk-visually-hidden"> upload</span></a>
+            </dd>
+        </div>
+{% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the key contact's email address?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                 {{ data['keyCtcEmail'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/email">Change<span class="govuk-visually-hidden"> key contact email</span></a>
+            </dd>
+        </div>
+
+<!--same role check-->
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is the key contact also the authorising officer?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                 {{ data['key-ctc-auth'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../dupe-roles/key-ctc-authorisor">Change<span class="govuk-visually-hidden"> key contact is authorisor</span></a>
+            </dd>
+        </div>       
+
+<!--authorising officer-->
+
+{% if data['key-ctc-auth'] == "No"  %}
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the authorising officer's full name?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../authorisor/name">Change<span class="govuk-visually-hidden"> authorisor name</span></a>
+            </dd>
+         </div>
+{% endif %}
+
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has the authorising officer been known by any other name?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authAlias1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/alias-ques">Change<span class="govuk-visually-hidden"> key contact other name</span></a>
+            </dd>
+         </div>
+
+{% if data['authAlias1'] == "Yes" %}        
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What other name has the authorising officer used?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authAliasName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/add-alias">Change<span class="govuk-visually-hidden"> key contact alias name</span></a>
+            </dd>
+         </div>
+{% endif %}
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the authorising officer's date of birth?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authdob-day'] }}/{{ data['authdob-month'] }}/{{ data['authdob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/dob">Change<span class="govuk-visually-hidden"> key contact date of birth</span></a>
+            </dd>
+         </div>
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the authorising officer's nationality?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authNat'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/nationality">Change<span class="govuk-visually-hidden"> key contact nationality</span></a>
+            </dd>
+         </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you uploading the authorising officer's passport?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authPpt'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/ppt">Change<span class="govuk-visually-hidden"> upload passport</span></a>
+            </dd>
+         </div>
+
+ {% if data['authPpt'] == "Yes" %}        
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the authorising officer's passport number?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authPptNbr'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/ppt-nbr">Change<span class="govuk-visually-hidden"> passport number</span></a>
+            </dd>
+         </div>
+
+   {% else %}  
+
+       <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you uploading the authorising officer's driving licence?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['authUploadID'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/drive">Change<span class="govuk-visually-hidden"> driving licence status</span></a>
+            </dd>
+        </div>
+
+{% endif %}
+
+{% if data['authUploadID'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the authorising officer's driving licence number?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['driveNbr'] }} 
+            </dd> 
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/drive-nbr">Change<span class="govuk-visually-hidden"> driving licence number</span></a>
+            </dd>
+        </div>
+{% endif %}
+
+
+{% if data['authPpt'] == "Yes" or data['authUploadID'] == "Yes" %}
+       <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Upload an image of the identity document for the authorising officer
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                identity.jpeg 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/upload-ppt">Change<span class="govuk-visually-hidden"> upload</span></a>
+            </dd>
+        </div>
+{% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the authorising officer's email address?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                 {{ data['authEmail'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/email">Change<span class="govuk-visually-hidden"> key contact email</span></a>
+            </dd>
+        </div>
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is the key contact also the safeguarding lead?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                 {{ data['key-ctc-safe'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../dupe-roles/key-ctc-authorisor">Change<span class="govuk-visually-hidden"> key contact is authorisor</span></a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is the authorising officer also the safeguarding lead?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                 {{ data['auth-safe'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../dupe-roles/key-ctc-authorisor">Change<span class="govuk-visually-hidden"> key contact is authorisor</span></a>
+            </dd>
+        </div>
+
+<!--safeguarding lead-->
+
+{% if data['key-ctc-auth'] == "No"  %}
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the safeguarding lead's full name?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safeName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../authorisor/name">Change<span class="govuk-visually-hidden"> authorisor name</span></a>
+            </dd>
+         </div>
+{% endif %}
+
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has the safeguarding lead been known by any other name?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['addSafeAlias1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/alias-ques">Change<span class="govuk-visually-hidden"> key contact other name</span></a>
+            </dd>
+         </div>
+
+{% if data['addSafeAlias1'] == "Yes" %}        
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What other name has the safeguarding lead used?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safeAlias1'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/add-alias">Change<span class="govuk-visually-hidden"> key contact alias name</span></a>
+            </dd>
+         </div>
+{% endif %}
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the safeguarding lead's date of birth?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safedob-day'] }}/{{ data['safedob-month'] }}/{{ data['safedob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/dob">Change<span class="govuk-visually-hidden"> key contact date of birth</span></a>
+            </dd>
+         </div>
+
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the safeguarding lead's nationality?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safeNat'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/nationality">Change<span class="govuk-visually-hidden"> key contact nationality</span></a>
+            </dd>
+         </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you uploading the safeguarding lead's passport?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safePpt'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/ppt">Change<span class="govuk-visually-hidden"> upload passport</span></a>
+            </dd>
+         </div>
+
+ {% if data['safePpt'] == "Yes" %}        
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the safeguarding lead's passport number?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safePptNbr'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/ppt-nbr">Change<span class="govuk-visually-hidden"> passport number</span></a>
+            </dd>
+         </div>
+
+   {% else %}  
+
+       <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you uploading the safeguarding lead's driving licence?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safeUploadID'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/drive">Change<span class="govuk-visually-hidden"> driving licence status</span></a>
+            </dd>
+        </div>
+
+{% endif %}
+
+{% if data['safeUploadID'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the safeguarding lead's driving licence number?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                {{ data['safeDriveNbr'] }} 
+            </dd> 
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/drive-nbr">Change<span class="govuk-visually-hidden"> driving licence number</span></a>
+            </dd>
+        </div>
+{% endif %}
+
+
+{% if data['safePpt'] == "Yes" or data['safeUploadID'] == "Yes" %}
+       <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Upload an image of the identity document for the safeguarding lead
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                identity.jpeg 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/upload-ppt">Change<span class="govuk-visually-hidden"> upload</span></a>
+            </dd>
+        </div>
+{% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What is the safeguarding lead's email address?
+            </dt>
+            <dd class="govuk-summary-list__value"> 
+                 {{ data['safeEmail'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../key-ctc/email">Change<span class="govuk-visually-hidden"> key contact email</span></a>
+            </dd>
+        </div>
+        </dl>
+
+   
+   
+
+<!--email confirmation-->
+
+
+
+
+      <h2 class="govuk-heading-m">Do you want to get an email confirming your form has been submitted?</h2>
+
+      <p class="govuk-body">We'll only use the email address you provide here to send a confirmation that your form's been successfully submitted. It will not contain a copy of your answers.</p>
+
+     
+{% set confirmEmailHtml %}
+{{ govukInput({
+  id: "confirm-email",
+  name: "confirmEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-full",
+  label: {
+    text: "What email address do you want us to send your confirmation to?"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "confirm-email",
+  fieldset: {
+    
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: confirmEmailHtml
+      }
+    },
+    {
+      value: "No",
+      text: "No"    
+    }
+  ]
+}) }}
+
+
+<h2 class="govuk-heading-m">Declaration</h2>
+
+<p>Before you submit this application, you must confirm that your organisation:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>is a registered legal entity</li>
+  <li>is based in the UK</li>
+  <li>has the capability, resources and networks to act as a lead sponsor</li>
+  <li>can support multiple sponsor groups</li>
+  <li>has a governance board where the majority of members are Vritish or Irish citizens</li>
+  <li>has a complaints procedure</li>
+  <li>has data protection and safeguarding policies</li> 
+</ul>
+
+<p>You will not receive a copy of this form after you submit it. You should print this page or save a copy for your records.</p>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Agree and submit"
+        }) }}
+
+       </form>
+      </main>
+    </div>
+  </div>
+  
+{% endblock %}
+
