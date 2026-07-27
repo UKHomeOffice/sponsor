@@ -6,9 +6,23 @@
 Safe and legal design research
 {% endblock %}
 
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a research prototype. No data added during research is stored in this service.'
+}) }}
+{% endblock %}
+
 {% set serviceName %}
 Safe and legal research
 {% endset %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+
 
 {% block content %}
 
@@ -29,13 +43,13 @@ Safe and legal research
   
   <p>A sponsoring organisation will need to be accredited by the Home Office before they are able to sponsor a community group. Lead sponsors will be required to apply for accreditation by completing an online form.</p>
 
-  <p>The screens in this design history show how the product has changed over time. </p>
+  <p>The screens in this prototype includes are the designs for each round of research.. </p>
 
   <h2 class="govuk-heading-m">Lead sponsor application form</h2>
 
  <p>Organisations must use this form to apply to be a Lead Sponsor.</p>
 
-<table class="govuk-table">
+<!--<table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Minimum viable product (MVP)</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -88,7 +102,70 @@ Safe and legal research
       <td class="govuk-table__cell">If the applicant has a <a href="app-lead-spnr/org/company-nbr">company number, it is added</a>.</td>
     </tr>
   </tbody>
-</table>
+</table>-->
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#current">
+        In research
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past">
+        Previous research
+      </a>
+    </li>
+
+  </ul>
+  <div class="govuk-tabs__panel" id="current">
+    <h2 class="govuk-heading-m">Current research</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Prototype</th>
+          <th scope="col" class="govuk-table__header">Description</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><span class="govuk-caption-m">Round 1<br>
+            <a href="../round-1/screen-index">MVP screens</a></P>
+          </span></td>
+          <td class="govuk-table__cell"><span class="govuk-caption-m">July 2026</span>
+           <p>Assess changes needed before the form goes into production. Add any other changes to a backlog to be prioritised.
+           </p></td>
+       
+        </tr>
+     
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past">
+    <h2 class="govuk-heading-m">Previous research</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Prototype</th>
+          <th scope="col" class="govuk-table__header">Description</th>
+          <th scope="col" class="govuk-table__header">Research playback</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">to be completed</td>
+          <td class="govuk-table__cell">to be completed</td>
+          <td class="govuk-table__cell">to be completed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+
+</div>
 
   </div>
 </div>

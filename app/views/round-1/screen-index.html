@@ -1,0 +1,255 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block pageTitle %}
+Safe and legal design history
+{% endblock %}
+
+{% set serviceName %}
+Safe and legal research history
+{% endset %}
+
+<h1 class="govuk-heading-l">
+      {{ serviceName }}
+    </h1>
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <p>The screens below were designed using <a href="https://www.forms.service.gov.uk/">GOV.Uk forms</a> which comes with the following constraints:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <lI>a maximum of 50 'an another' fields can be added</lI>
+    <li>a maximum of 4 upload documents can be added</li>
+
+  </ul>
+
+  <h2 class="govuk-heading-m">Lead sponsor application form</h2>
+
+ <p>Organisations must use this form to apply to be a Lead Sponsor.</p>
+
+  <h2 class="govuk-heading-m">Miminu viable product (MVP)</h2>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">GOV.UK</caption>
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+
+
+ 
+
+      <th scope="col" class="govuk-table__header">Screen</th>
+      <th scope="col" class="govuk-table__header">Description</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Start</th>
+      <td class="govuk-table__cell"><a href="app-lead-spnr/gov-start.html">Apply to be a lead sponsor</a> summaries what is needed to complete the application. </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">GOV.UK forms</caption>
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation screens</th>
+      <th scope="col" class="govuk-table__header">Description</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Start</th>
+      <td class="govuk-table__cell"><a href="app-lead-spnr/gov-start.html">Apply to be a lead sponsor</a> summaries what is needed to complete the application. </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Eligibility</th>
+      <td class="govuk-table__cell"><a href="app-lead-spnr/org/eligibile">Lead sponsor eligibility</a> requirements. The user is asked if they meet a set of requirements.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Not eligible</th>
+      <td class="govuk-table__cell">If the <a href="app-lead-spnr/exit">eligibility criteria is not met</a> the user is advised they cannot continue with their application.</td>
+    </tr>
+    
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Route</th>
+      <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/route">select the route</a> they wish to apply for.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Name</th>
+      <td class="govuk-table__cell">The <a href="app-lead-spnr/org/name">name of the organisation</a> making the application is required.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Charity</th>
+      <td class="govuk-table__cell">The applicant is asked if they have a <a href="app-lead-spnr/org/charity">charity number</a>.</td>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Charity number</th>
+      <td class="govuk-table__cell">If the applicant has a <a href="app-lead-spnr/org/charity-nbr">charity number,</a> it is added.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Company</th>
+      <td class="govuk-table__cell">The applicant is asked if they have a <a href="app-lead-spnr/org/company">company number</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Company number</th>
+      <td class="govuk-table__cell">If the applicant has a <a href="app-lead-spnr/org/company-nbr">company number,</a> it is added.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Address</th>
+      <td class="govuk-table__cell">The applicant is required to add the <a href="app-lead-spnr/org/company-adress">registered address of their organisation in the UK</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Website</th>
+      <td class="govuk-table__cell">The applicant has the option to add the url of <a href="app-lead-spnr/org/website">the organisations website</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Consortiums</th>
+      <td class="govuk-table__cell">The applicant is asked if they are working with <a href="app-lead-spnr/org/consortium"> other organisations </a>to make up a consortium capable of delivering the sponsorship.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Consortium names</th>
+      <td class="govuk-table__cell">If the user is working with other organisations the applicant is asked to add the name of <a href="app-lead-spnr/org/consortium"> the other organisation</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Add another consortium name</th>
+      <td class="govuk-table__cell">The user is able to add <a href="app-lead-spnr/org/added-org-1">another organisation name</a>.<br><br>
+          This question in the prototype enables the user to add 2 additional organisations which would make up the consortium. </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload document</th>
+      <td class="govuk-table__cell">The user is required to upload a document which will <a href="app-lead-spnr/org/sponsor-role">explain how their organisation will deliver the lead sponsor role</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload successful</th>
+      <td class="govuk-table__cell">Confirmation the <a href="app-lead-spnr/org/uploaded">document has been successfully uploaded</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Board member name</th>
+      <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/board-1/name">add the name of a board member</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Board member nationality</th>
+      <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/board-1/nationality">add the nationality of a board member</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Board member passport</th>
+      <td class="govuk-table__cell">The user is asked if the board member has a <a href="app-lead-spnr/org/board-1/ppt">passport</a>.</td>
+    </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Board member passport number</th>
+      <td class="govuk-table__cell">If the board member has a passport the user is asked to <a href="app-lead-spnr/org/board-1/ppt-nbr">add the passport number</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Board member date of birth</th>
+      <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/board-1/ppt-dob">add board member's date of birth</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Add another board member</th>
+      <td class="govuk-table__cell">The user is asked if they wish to  <a href="app-lead-spnr/org/board-1/add-another">add another board member</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Maximum number of board member reached</th>
+      <td class="govuk-table__cell">The <a href="app-lead-spnr/org/board-1/add-another">maximum number of board member's reached</a> screen is displayed if the user tries to add a 16th board member. <br><br>This is not a constraint GOV.UK forms. This is a design decision as we have no idea how many board members an organisation can have. </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">GOV.UK forms</caption>
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Key personnel screens</th>
+      <th scope="col" class="govuk-table__header">Description</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's name</th>
+      <td class="govuk-table__cell">Usually defined as <a href="app-lead-spnr/key-ctc/name.html">the organisation's operational lead</a>.</td> 
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's other name</th>
+      <td class="govuk-table__cell">The user is asked if the key contact has been known by <a href="app-lead-spnr/board-1/alias-ques"> any other name</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Add key contact's other name</th>
+      <td class="govuk-table__cell">If the key contact has been <a href="app-lead-spnr/key-ctc/add-alias">known by another name</a> the user is asked to add that name.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact date of birth</th>
+      <td class="govuk-table__cell">The key contact's <a href="app-lead-spnr/key-ctc/dob">date of birth</a> is added.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's nationality</th>
+      <td class="govuk-table__cell">The key contact's <a href="app-lead-spnr/key-ctc/nationality"> nationality</a> is selected from an autocomplete input field.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's passport</th>
+      <td class="govuk-table__cell">The user is asked if they are going to <a href="app-lead-spnr/key-ctc/ppt">upload an image the key contact's passport</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's passport number</th>
+      <td class="govuk-table__cell">Before the user uploads an image of the key contact's passport they are asked to add the <a href="app-lead-spnr/key-ctc/ppt-nbr"> passport number</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's driving licence</th>
+      <td class="govuk-table__cell">If the user indicates they will not upload an image of the key contact's passport they are asked if the key contact has a <a href="app-lead-spnr/key-ctc/driving">driving licence</a>, and if they will upload an image of it,</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's driving licence number</th>
+      <td class="govuk-table__cell">If the user confirms they will upload an image of the key contact's driving licence they are asked to add the <a href="app-lead-spnr/key-ctc/driving-nbr">driving licence number</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Key contact's email</th>
+      <td class="govuk-table__cell">The user is required to add the key contact's <a href="app-lead-spnr/key-ctc/email">email</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Additional role check</th>
+      <td class="govuk-table__cell">It is possible for the key contact to perform more than one role. <br><br>The user is asked if<a href="app-lead-spnr/key-ctc/email"> the key contact is also the authorising officer</a>.</td>
+    </tr>
+    
+   
+  </tbody>
+</table>
+  </div>
+</div>
+
+{% endblock %}
