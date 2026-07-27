@@ -17,6 +17,16 @@ Apply to be a lead sponsor
 
 {% block content %}
 
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+  <link rel="stylesheet" href="/public/javascripts/accessible-autocomplete.min.css" />
+
+<style>
+  .autocomplete__option,
+  .autocomplete__input {
+    font-family: "nta", Arial, sans-serif;
+  }
+</style>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -32,6 +42,16 @@ Apply to be a lead sponsor
   name: "eventName"
 }) }}
 
+ <div class="govuk-form-group">
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="fruit-type">
+            What is the safeguarding lead's nationality?
+          </label></h1>
+
+ <div id="nationality" class="autocomplete-wrapper" name="nationalityMem1"></div>
+                          <div id="js-anotherCurrentCountry"></div>
+
         {{ govukButton({
           text: "Continue"
         }) }}
@@ -40,5 +60,386 @@ Apply to be a lead sponsor
 
     </div>
   </div>
+
+   <script type="text/javascript">
+  function suggest(query, syncResults) {
+    var results = [
+    'Unspecified - XXX',
+  'Refugee - XXB',
+  'Stateless - XXA',
+  'Zimbabwe - ZWE',
+  'Zambia - ZMB',
+  'Yemen - YEM',
+  'Western Sahara - ESH',
+  'Wallis and Futuna - WLF',
+  'Virgin Islands (US) - VIR',
+  'Virgin Islands (British) - VGM',
+  'Vietnam - VNM',
+  'Venezuela - VEN',
+  'Vanuatu - VUT',
+  'Uzbekistan - UZB',
+  'Uruguay - URY',
+  'United States - USA',
+  'United Kingdom - GBR',
+  'United Arab Emirates - ARE',
+  'Ukraine - UKR',
+  'Uganda - UGA',
+  'Tuvalu - TUV',
+  'Turks and Caicos Islands - TCA',
+  'Turkmenistan - TKM',
+  'Turkey - TUR',
+  'Tunisia - TUN',
+  'Trinidad and Tobago - TTO',
+  'Tonga - TON',
+  'Tokelau - TKL',
+  'Togo - TGO',
+  'East Timor - TLS',
+  'Thailand - THA',
+  'Tanzania - TZA',
+  'Tajikistan - TJK',
+  'Taiwan (Republic of China) - TWN',
+  'Syria - SYR',
+  'Switzerland - CHE',
+  'Sweden - Sweden',
+  'Swaziland - SWZ',
+  'Svalbard - SJM',
+  'Suriname - SUR',
+  'Sudan - SDN',
+  'Sri Lanka - LKA',
+  'Spain - ESP',
+  'South Sudan - SSD',
+  'South Georgia and the South Sandwich Islands (SGSSI) - SGS',
+  'South Sudan - SSD',
+  'South Africa - ZAF',
+  'Somalia - SOM',
+  'Solomon Islands - SLB',
+  'Slovenia - SVN',
+  'Slovakia - SVK',
+  'Sint Maarten (Dutch part) - SXM',
+  'Singapore - SGP',
+  'Sierra Leone - SLE',
+  'Seychelles - SYC',
+  'Serbia - SRB',
+  'Senegal - SEN',
+  'Saudi Arabia - SAU',
+  'Sao Tome and Principe - STP',
+  'San Marino - SMR',
+  'Samoa - WSM',
+  'St Vincent - VCT',
+  'Saint Pierre and Miquelon - SPM',
+  'Saint Martin (French) - MAF',
+  'St Lucia - LCA',
+  'St Kitts and Nevis - KNA',
+  'Saint Helena, Ascension and Tristan da Cunha - SHN',
+  'Saint Barthelemy - BLM',
+  'Rwanda - RWA',
+  'Russia - RUS',
+  'Romania - ROU',
+  'Reunion - REU',
+  'Qatar - QAT',
+  'Puerto Rico - PRI',
+  'Portugal - PRT',
+  'Poland - POL',
+  'Philippines - PHL',
+  'Peru - PER',
+  'Paraguay - PRY',
+  'Papua New Guinea - PNG',
+  'Panama - PAN',
+  'Palestine (State of) - PSE',
+  'Palau - PLW',
+  'Pakistan - PAK',
+  'Oman - OMN',
+  'Norway - NOR',
+  'Northern Mariana Islands - MNP',
+  'Norfolk Island - NFK',
+  'Niue - NIU',
+  'Nigeria - NGA',
+  'Niger - NER',
+  'Nicaragua - NIC',
+  'New Zealand - NZL',
+  'New Caledonia - NCL',
+  'Netherlands - NLD',
+  'Nepal - NPL',
+  'Nauru - NRU',
+  'Namibia - NAM',
+  'Myanmar (Burma) - MMR',
+  'Mozambique - MOZ',
+  'Morocco - MAR',
+  'Monserrat - MSR',
+  'Montenegro - MNE',
+  'Mongolia - MNG',
+  'Monaco - MCO',
+  'Moldova - MDA',
+  'Micronesia - FSM',
+  'Mexico - MEX',
+  'Mayotte - MYT',
+  'Mauritius - MUS',
+  'Mauritania - MRT',
+  'Marshall Islands - MHL',
+  'Malta - MLT',
+  'Mali - MLI',
+  'Maldives - MDV',
+  'Malaysia - MYS',
+  'Malawi - MWI',
+  'Madagascar - MDG',
+  'Luxembourg - LUX',
+  'Lithuania - LTU',
+  'Liechtenstein - LIE',
+  'Libya - LBY',
+  'Liberia - LBR',
+  'Lesotho - LSO',
+  'Lebanon - LBN',
+  'Latvia - LVA',
+  'Laos - LAO',
+  'Kyrgyzstan - KGZ',
+  'Kuwait - KWT',
+  'Kosovo - XXK',
+  'South Korea - KOR',
+  'North Korea - PRK',
+  'Kiribati - KIR',
+  'Kenya - KEN',
+  'Kazakhstan - KAZ',
+  'Jordan - JOR',
+  'Jersey - JEY',
+  'Japan - JPN',
+  'Jamaica - JAM',
+  'Italy - ITA',
+  'Israel - ISR',
+  'Isle of Man - IMN',
+  'Ireland - IRL',
+  'Iraq - IRQ',
+  'Iran - IRN',
+  'Indonesia - IDN',
+  'India - IND',
+  'Iceland - ISL',
+  'Hungary - HUN',
+  'Hong Kong - HKG',
+  'Honduras - HND',
+  'Vatican City - VAT',
+  'Haiti - HTI',
+  'Guyana - GUY',
+  'Guinea-Bissau - GNB',
+  'Guinea - GIN',
+  'Guernsey - CGY',
+  'Guatemala - GTM',
+  'Guam - GUM',
+  'Guadeloupe - GLP',
+  'Grenada - GRD',
+  'Greenland - GRL',
+  'Greece - GRC',
+  'Gibraltar - GIB',
+  'Ghana - GHA',
+  'Germany - DEU',
+  'Georgia - GEO',
+  'The Gambia - GMB',
+  'British Subject - BS',
+  'British Protected Person - GBP',
+  'British Overseas Citizen - BGO',
+  'British National (Overseas) - GBN',
+  'Gabon - GAB',
+  'French Southern Territories - ATF',
+  'French Polynesia - PYF',
+  'French Guiana - GUF',
+  'France - FRA',
+  'Finland - FIN',
+  'Fiji -FJI',
+  'Faroe Islands - FRO',
+  'Falkland Islands (Malvinas) - FLK',
+  'Ethiopia - ETH',
+  'Estonia - EST',
+  'Eritrea - ERI',
+  'Equatorial Guinea - GNQ',
+  'El Salvador - SLV',
+  'Egypt - EGY',
+  'Ecuador - ECU',
+  'Dominican Republic - DOM',
+  'Dominica - DMA',
+  'Djibouti - DJI',
+  'Denmark - DNK',
+  'Czech Republic - CZE',
+  'Cyprus - CYP',
+  'Curcao - CUW',
+  'Cuba - CUB',
+  'Croatia - HRV',
+  'Ivory Coast - CIV',
+  'Costa Rica - CRI',
+  'Cook Islands - COK',
+  'Congo (Democratic Republic) - COD',
+  'Congo - COG',
+  'Comoros - COM',
+  'Colombia - COL',
+  'China - CHN',
+  'Chile - CHL',
+  'Chad - TCD',
+  'Central African Republic - CAF',
+  'Cayman Islands - CYM',
+  'Canada - CAN',
+  'Cameroon - CMR',
+  'Cambodia - KHM',
+  'Cape Verde - CPV',
+  'Burundi - BDI',
+  'Burkina Faso - BFA',
+  'Bulgaria - BGR',
+  'Brunei Darussalam - BRN',
+  'British Overseas Territories - BOI',
+  'British Indian Ocean Territory - BOI',
+  'Brazil - BRA',
+  'Botswana - BWA',
+  'Bosnia and Herzegovina - BIH',
+  'Bonaire, Sint Eustatius and Saba (BES Islands) - BES',
+  'Bolivia - BOL',
+  'Bhutan - BTN',
+  'Bermuda - BMU ',
+  'Benin - BEN',
+  'Belize - BLZ',
+  'Belgium - BEL',
+  'Belarus - BLR',
+  'Barbados - BRB',
+  'Bangladesh - BGD',
+  'Bahrain - BHR',
+  'Bahamas - BHS',
+  'Azerbaijan - AZE',
+  'Austria - AUT',
+  'Australia - AUS',
+  'Aruba - ABW',
+  'Armenia - ARM',
+  'Argentina - ARG',
+  'Antigua and Barbuda - ATG',
+  'Anguilla - AIA',
+  'Angola - AGO',
+  'Andorra - AND',
+  'American Samoa - ASM',
+  'Algeria - DZA',
+  'Albania - ALB',
+  'Afghanistan - AFG'
+    ]
+    syncResults(query ?
+      results.filter(function (result) {
+        return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      }) :
+      []
+    )
+  }
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#nationality')
+  id = 'autocomplete-minLength'
+  name = 'nationality'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    name: name,
+    minLength: 2,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-autoselect')
+  id = 'autocomplete-autoselect'
+  accessibleAutocomplete({
+    autoselect: true,
+    element: element,
+    id: id,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-overlay')
+  id = 'autocomplete-overlay'
+  accessibleAutocomplete({
+    displayMenu: 'overlay',
+    element: element,
+    id: id,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-defaultValue')
+  id = 'autocomplete-defaultValue'
+  accessibleAutocomplete({
+    defaultValue: 'Germany',
+    element: element,
+    id: id,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#autocomplete-progressiveEnhancement')
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: element
+  })
+</script>
+<script type="text/javascript">
+  function customSuggest(query, syncResults) {
+    var results = [{
+        endonymLang: '',
+        endonym: '',
+        name: 'Zimbabwe'
+      },
+      {
+        endonymLang: '',
+        endonym: '',
+        name: 'ZZZ'
+      }
+    ]
+    syncResults(query ?
+      results.filter(function (result) {
+        var resultContains = result.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        var endonymContains = result.endonym.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        return resultContains || endonymContains
+      }) :
+      []
+    )
+  }
+  function inputValueTemplate(result) {
+    return result && result.name
+  }
+  function suggestionTemplate(result) {
+    return result && '<strong>' + result.name + '</strong>' +
+      ' (<span lang=' + result.endonymLang + '>' + result.endonym + '</span>)'
+  }
+  element = document.querySelector('#tt-customTemplates')
+  id = 'autocomplete-customTemplates'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    minLength: 2,
+    source: customSuggest,
+    templates: {
+      inputValue: inputValueTemplate,
+      suggestion: suggestionTemplate
+    }
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-confirmOnBlur')
+  id = 'autocomplete-confirmOnBlur'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    confirmOnBlur: false,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-placeholder')
+  id = 'autocomplete-placeholder'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    placeholder: 'Search for a country',
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-showNoOptionsFound')
+  id = 'autocomplete-showNoOptionsFound'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    showNoOptionsFound: true,
+    source: suggest
+  })
+</script>
 
 {% endblock %}

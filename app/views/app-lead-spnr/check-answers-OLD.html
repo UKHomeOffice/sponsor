@@ -1,0 +1,1233 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead sponsor
+{% endset %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+
+{% set months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+] %}
+
+{% set rows = [
+  {
+    key: {
+      text: "What is the name of your organisation?"
+    },
+    value: {
+      text: data["orgName"]
+    }
+  },
+  {
+    key: {
+      text: "Does your organisation have a company number?"
+    },
+    value: {
+      text: data["company"]
+    }
+  }
+] %}
+
+{% if data["company"] == "yes" %}
+  {% set rows = rows.concat([{
+    key: {
+      text: "What is your company number?"
+    },
+    value: {
+      text: data["companyNumber"]
+    }
+  }]) %}
+{% endif %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before submitting your form</h1>
+      
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+
+        rows: [
+          {
+            key: {
+              text: "Does your organisation meet all of the eligibility criteria?"
+            },
+            value: {
+              text: data ["eligible"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Which refugee sponsorship route is your organisation applying for?"
+            },
+            value: {
+              text:  data ["route"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the name of your organisation?"
+            },
+            value: {
+              text: data["orgName"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "customer reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does your organisation have a charity number?"
+            },
+            value: {
+              html: data ["charity"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is your charity number?"
+            },
+            value: {
+              text: data ["charityNumber"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does your organisation have a company number?"
+            },
+            value: {
+              html: data ["company"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },          
+          {
+
+            key: {
+              text: "What is your company number?"
+            },
+            value: {
+              html:  data ["companyNumber"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is your organisation's registered address in the UK?"
+            },
+            value: {
+              html:
+               data["addressLine1"] +
+              ((", " + data["addressLine2"]) if data["addressLine2"] else "") +
+                ", " + data["addressTown"] +
+              ((", " + data["addressCounty"]) if data["addressCounty"] else "") +
+                ", " + data["addressPostcode"]
+},
+            actions: {
+              items: [
+                {
+                  href: "address",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is your organisation's website? (optional)"
+            },
+           value: {
+            text: data["website"] if data["website"] else "Not completed"
+            },
+            actions: {
+              items: [
+                {
+                  href: "org/website",
+                  text: "Change",
+                  visuallyHiddenText: "website"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Are you working with any other organisations as part of a consortium?"
+            },
+            value: {
+              text: data ["consortium"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What are the names of the other organisations?"
+            },
+            value: {
+              html: data["consortium1"] +
+              "<br>" + data["consortium2"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Upload a document explaining how your organisation will deliver the lead sponsor"
+            },
+            value: {
+              text: "Lead sponsor role.docx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "What is the board member's name? (1 of up to 15)"
+            },
+            value: {
+              text: data["member1"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's nationality? (1 of up to 15)"
+            },
+            value: {
+              html: '<p class="govuk-body">sarah.phillips@example.com</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the board member have a passport? (1 of up to 15)"
+            },
+            value: {
+              text: data["ppt"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's passport number? (1 of up to 15)"
+            },
+            value: {
+              text: data["pptNbr"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's date of birth? (1 of up to 15)"
+            },
+            value: {
+              text: data["dob-day"] + " " + months[data["dob-month"] - 1] + " " + data["dob-year"] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Do you want to add another board member?"
+            },
+            value: {
+              text: data ["add-board-2"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },  
+ 
+          {
+            key: {
+              text: "What's the board members's name? (2 of up to 15)"
+            },
+            value: {
+              text: data ["memberName2"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-2/name",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's nationality? (2 of up to 15)"
+            },
+            value: {
+              text: "For personal use"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the board member have a passport? (2 of up to 15)"
+            },
+            value: {
+              text: data ["memberPpt2"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "What is the board member's passport number? (2 of up to 15)"
+            },
+            value: {
+              text: data ["memberPPtNbr2"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's date of birth (2 of up to 15)"
+            },
+            value: {
+              text: data["member2dob-day"] + " " + months[data["member2dob-month"] - 1] + " " + data["member2dob-year"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-2/ppt-nbr",
+                  text: "Change",
+                  visuallyHiddenText: "passport number"
+                }
+              ]
+            }
+          },
+                    {
+            key: {
+              text: "What's the board members's name? (3 of up to 15)"
+            },
+            value: {
+              text: data ["memberName3"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-3/name",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's nationality? (3 of up to 15)"
+            },
+            value: {
+              text: "To be fixed"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the board member have a passport? (3 of up to 15)"
+            },
+            value: {
+              text: data ["memberPpt3"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "What is the board member's passport number? (3 of up to 15)"
+            },
+            value: {
+              text: data ["memberPPtNbr3"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's date of birth (2 of up to 15)"
+            },
+            value: {
+              text: data["member2dob-day"] + " " + months[data["member2dob-month"] - 1] + " " + data["member2dob-year"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-2/ppt-nbr",
+                  text: "Change",
+                  visuallyHiddenText: "passport number"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "What's the board members's name? (2 of up to 15)"
+            },
+            value: {
+              text: data ["memberName2"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-2/name",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's nationality? (2 of up to 15)"
+            },
+            value: {
+              text: "For personal use"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the board member have a passport? (2 of up to 15)"
+            },
+            value: {
+              text: data ["memberPpt2"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "What is the board member's passport number? (2 of up to 15)"
+            },
+            value: {
+              text: data ["memberPPtNbr2"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's date of birth (2 of up to 15)"
+            },
+            value: {
+              text: data["member2dob-day"] + " " + months[data["member2dob-month"] - 1] + " " + data["member2dob-year"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-2/ppt-nbr",
+                  text: "Change",
+                  visuallyHiddenText: "passport number"
+                }
+              ]
+            }
+          },
+                    {
+            key: {
+              text: "What's the board members's name? (3 of up to 15)"
+            },
+            value: {
+              text: data ["memberName3"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-3/name",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's nationality? (3 of up to 15)"
+            },
+            value: {
+              text: "For personal use"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the board member have a passport? (3 of up to 15)"
+            },
+            value: {
+              text: data ["memberPpt3"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "passport"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "What is the board member's passport number? (3 of up to 15)"
+            },
+            value: {
+              text: data ["memberPptNbr3"]            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the board member's date of birth (3 of up to 15)"
+            },
+            value: {
+              text: data["member3dob-day"] + " " + months[data["member3dob-month"] - 1] + " " + data["member3dob-year"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "../board-3/ppt-nbr",
+                  text: "Change",
+                  visuallyHiddenText: "passport number"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "What email address should we use to contact you about the additional board members?"
+            },
+            value: {
+              text: data ["boardMax"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+  
+          {
+            key: {
+              text: "What is the key contact's full name?"
+            },
+            value: {
+              text: data ["keyCtcName"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Has the key contact been known by any other name?"
+            },
+            value: {
+              text: data ["aliasOne"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What other name has the key contact used?"
+            },
+            value: {
+              text: data ["nameAlias"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the key contact's date of birth?"
+            },
+            value: {
+              text: data["keyctcdob-day"] + " " + months[data["keyctcdob-month"] - 1] + " " + data["keyctcdob-year"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the key contact's nationality?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the key contact have a passport? "
+            },
+            value: {
+              text: data["keyCtcpptp"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+           {
+            key: {
+              text: "What is the key contact's passport number?"
+            },
+            value: {
+              text: data["keyCtcPptNbr"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the key contact have a driver's licence?"
+            },
+            value: {
+              text: data ["keyCtcDrive"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the key contact's driving licence number?"
+            },
+            value: {
+              text: data ["keyCtcDriveNbr"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the key contact's email address?"
+            },
+            value: {
+              text: data ["keyCtcEmail"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Is the key contact also the authorising officer?"
+            },
+            value: {
+              text: data["key-ctc-auth"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the authorising officer's full name?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Has the authorising officer been known by any other name?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the authorising officer's date of birth?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the authorising officer's nationality?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the authorising officer have a passport? "
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the authorising officer have a driver's licence?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the authorising officer's email address?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Is the authorising officer also the safeguarding lead?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the safeguarding lead's full name?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Has the safeguarding lead been known by any other name?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the safeguarding lead's date of birth?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the safeguarding lead's nationality?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the safeguarding lead have a passport? "
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the safeguarding lead have a driver's licence?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the safeguarding lead's email address?"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Do you want to get an email confirming your form has been submitted?</h2>
+
+      <p class="govuk-body">We'll only use the email address you provide here to send a confirmation that your form's been successfully submitted. It will not contain a copy of your answers.</p>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+  
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+
+<h2 class="govuk-heading-m">Declaration</h2>
+
+<p>Before you submit this application you must confirm that your organisation:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>is a registered legal entity</li>
+  <li>is based in the UK</li>
+  <li>has the capability, resources and networks to act as a lead sponsor</li>
+  <li>can support multiple sponsor groups</li>
+  <li>has a governance board where the majority of members are British or Irish citizens</li>
+  <li>has a complaints procedure</li>
+  <li>has data protection and safeguarding policies</li>
+  </ul>
+
+  <p>You will not receive a copy of this form after you submit it. You should print this page or save a copy for your records.</p>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Agree and submit"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+
