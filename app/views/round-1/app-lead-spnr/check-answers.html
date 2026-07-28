@@ -768,7 +768,7 @@ Apply to be a lead sponsor
               Is the authorising officer also the safeguarding lead?
             </dt>
             <dd class="govuk-summary-list__value"> 
-                 {{ data['auth-safe'] }} 
+                 {{ data['authSafe'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="../dupe-roles/key-ctc-authorisor">Change<span class="govuk-visually-hidden"> key contact is authorisor</span></a>
@@ -777,7 +777,7 @@ Apply to be a lead sponsor
 
 <!--safeguarding lead-->
 
-{% if data['key-ctc-auth'] == "No"  %}
+{% if data['key-ctc-safe'] == "No" or data['authSafe'] == "No" %}
          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What is the safeguarding lead's full name?
@@ -789,7 +789,7 @@ Apply to be a lead sponsor
               <a class="govuk-link" href="../authorisor/name">Change<span class="govuk-visually-hidden"> authorisor name</span></a>
             </dd>
          </div>
-{% endif %}
+
 
 
          <div class="govuk-summary-list__row">
@@ -923,6 +923,7 @@ Apply to be a lead sponsor
               <a class="govuk-link" href="../key-ctc/email">Change<span class="govuk-visually-hidden"> key contact email</span></a>
             </dd>
         </div>
+{% endif %}
         </dl>
 
    
