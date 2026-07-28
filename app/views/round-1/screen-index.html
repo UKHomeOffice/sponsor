@@ -22,7 +22,7 @@ Safe and legal research history
   <p>The screens below were designed using <a href="https://www.forms.service.gov.uk/">GOV.Uk forms</a> which comes with the following constraints:</p>
 
   <ul class="govuk-list govuk-list--bullet">
-    <lI>a maximum of 50 'an another' fields can be added</lI>
+    <lI>a maximum of 50 'add another' fields can be added</lI>
     <li>a maximum of 4 upload documents can be added</li>
 
   </ul>
@@ -31,7 +31,7 @@ Safe and legal research history
 
  <p>Organisations must use this form to apply to be a Lead Sponsor.</p>
 
-  <h2 class="govuk-heading-m">Miminu viable product (MVP)</h2>
+  <h2 class="govuk-heading-m">Miminum viable product (MVP)</h2>
 
 <table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">GOV.UK</caption>
@@ -39,14 +39,14 @@ Safe and legal research history
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
 
-
- 
-
-      <th scope="col" class="govuk-table__header">Screen</th>
-      <th scope="col" class="govuk-table__header">Description</th>
+  <th scope="col" class="govuk-table__header">Screen</th>
+  <th scope="col" class="govuk-table__header">Description</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
+
+<!--oraganisation-->
+
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Start</th>
       <td class="govuk-table__cell"><a href="app-lead-spnr/gov-start.html">Apply to be a lead sponsor</a> summaries what is needed to complete the application. </td>
@@ -110,7 +110,7 @@ Safe and legal research history
 
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Address</th>
-      <td class="govuk-table__cell">The applicant is required to add the <a href="app-lead-spnr/org/company-adress">registered address of their organisation in the UK</a>.</td>
+      <td class="govuk-table__cell">The applicant is required to add the <a href="app-lead-spnr/org/address">registered address of their organisation in the UK</a>.</td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -144,6 +144,8 @@ Safe and legal research history
       <td class="govuk-table__cell">Confirmation the <a href="app-lead-spnr/org/uploaded">document has been successfully uploaded</a>.</td>
     </tr>
 
+    <!--board members-->
+
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Board member name</th>
       <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/board-1/name">add the name of a board member</a>.</td>
@@ -166,12 +168,14 @@ Safe and legal research history
 
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Board member date of birth</th>
-      <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/board-1/ppt-dob">add board member's date of birth</a>.</td>
+      <td class="govuk-table__cell">The user is required to <a href="app-lead-spnr/org/board-1/dob">add board member's date of birth</a>.
+      </td>
     </tr>
 
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Add another board member</th>
-      <td class="govuk-table__cell">The user is asked if they wish to  <a href="app-lead-spnr/org/board-1/add-another">add another board member</a>.</td>
+      <td class="govuk-table__cell">The user is asked if they wish to  <a href="app-lead-spnr/org/board-1/add-another">add another board member</a>.<br><br>
+      The prototype enables the user to add a maximum of 3 board members,</td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -191,14 +195,17 @@ Safe and legal research history
     </tr>
   </thead>
   <tbody class="govuk-table__body">
+
+<!--key contact-->
+
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Key contact's name</th>
-      <td class="govuk-table__cell">Usually defined as <a href="app-lead-spnr/key-ctc/name.html">the organisation's operational lead</a>.</td> 
+      <td class="govuk-table__cell">A key contact has been defined as <a href="app-lead-spnr/key-ctc/name.html">the organisation's operational lead</a>.</td> 
     </tr>
 
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Key contact's other name</th>
-      <td class="govuk-table__cell">The user is asked if the key contact has been known by <a href="app-lead-spnr/board-1/alias-ques"> any other name</a>.</td>
+      <td class="govuk-table__cell">The user is asked if the key contact has been known by <a href="app-lead-spnr/key-ctc/alias-ques"> any other name</a>.</td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -236,6 +243,16 @@ Safe and legal research history
       <td class="govuk-table__cell">If the user confirms they will upload an image of the key contact's driving licence they are asked to add the <a href="app-lead-spnr/key-ctc/driving-nbr">driving licence number</a>.</td>
     </tr>
 
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload key contact's identity document</th>
+      <td class="govuk-table__cell">If the user has indicated they will<a href="app-lead-spnr/key-ctc/upload-ppt"> upload an image of an identity document for the key contact</a> this screen is displayed.<br><br>The image will be either the key contact's passport or driving licence.</td>
+    </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload successful</th>
+      <td class="govuk-table__cell">Screen displayed confirming <a href="app-lead-spnr/key-ctc/uploaded">the upload of the identity document has been successful</a> for the key contact.<br><br>The image will be either the key contact's passport or driving licence.</td>
+    </tr>
+
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Key contact's email</th>
       <td class="govuk-table__cell">The user is required to add the key contact's <a href="app-lead-spnr/key-ctc/email">email</a>.</td>
@@ -243,10 +260,158 @@ Safe and legal research history
 
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Additional role check</th>
-      <td class="govuk-table__cell">It is possible for the key contact to perform more than one role. <br><br>The user is asked if<a href="app-lead-spnr/key-ctc/email"> the key contact is also the authorising officer</a>.</td>
+      <td class="govuk-table__cell">It is possible for the key contact to perform more than one role. <br><br>The user is asked if <a href="app-lead-spnr/dupe-roles/key-ctc-authorisor">the key contact is also the authorising officer</a>.</td>
     </tr>
     
-   
+ <!--authortising officer-->  
+
+ <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's name</th>
+      <td class="govuk-table__cell">If the key contact does not also do the authorising officer role this screen is displayed.<br><br>An authorising officer has been defined as <a href="app-lead-spnr/authorisor/name">the person responsible for approving and signing off on behalf of the organisation</a>.</td> 
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's other name</th>
+      <td class="govuk-table__cell">The user is asked if the authorising officer has been known by <a href="app-lead-spnr/authorisor/alias-ques"> any other name</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Add authorising officer's other name</th>
+      <td class="govuk-table__cell">If the key contact has been <a href="app-lead-spnr/authorisor/add-alias">known by another name</a> the user is asked to add that name.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's date of birth</th>
+      <td class="govuk-table__cell">The key contact's <a href="app-lead-spnr/authorisor/dob">date of birth</a> is added.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's nationality</th>
+      <td class="govuk-table__cell">The key contact's <a href="app-lead-spnr/authorisor/nationality"> nationality</a> is selected from an autocomplete input field.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's passport</th>
+      <td class="govuk-table__cell">The user is asked if they are going to <a href="app-lead-spnr/authorisor/ppt">upload an image the authorising officer's passport</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's passport number</th>
+      <td class="govuk-table__cell">Before the user uploads an image of the authorising officer's passport they are asked to add the <a href="app-lead-spnr/authorisor/ppt-nbr"> passport number</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's driving licence</th>
+      <td class="govuk-table__cell">If the user indicates they will not upload an image of the authorising officer's passport they are asked if the authorising officer has a <a href="app-lead-spnr/authorisor/driving">driving licence</a>, and if they will upload an image of it,</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's driving licence number</th>
+      <td class="govuk-table__cell">If the user confirms they will upload an image of the key contact's driving licence they are asked to add the <a href="app-lead-spnr/authorisor/driving-nbr">driving licence number</a>.</td>
+    </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload authorising officer's identity document</th>
+      <td class="govuk-table__cell">If the user has indicated they will<a href="app-lead-spnr/authorisor/upload-ppt"> upload an image of an identity document for the authorising officer</a> this screen is displayed.<br><br>The image will be either the authorising officer's passport or driving licence.</td>
+    </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload successful</th>
+      <td class="govuk-table__cell">Screen displayed confirming the <a href="app-lead-spnr/authorisor/uploaded">upload of the identity document</a> has been successful uploaded for the authorising officer.<br><br>The image will be either the authorising officer's passport or driving licence.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Authorising officer's email</th>
+      <td class="govuk-table__cell">The user is required to add the authorising officer's <a href="app-lead-spnr/authorisor/email">email</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Additional role check</th>
+      <td class="govuk-table__cell">It is possible for the key contact to perform more than one role. <br><br>The user is asked if <a href="app-lead-spnr/dupe-roles/key-ctc-safeguarding">the key contact is also the safeguarding lead</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">****Additional role check***</th>
+      <td class="govuk-table__cell">It is possible for the authorisor to perform more than one role. <br><br>The user is asked if <a href="app-lead-spnr/dupe-roles/authorisor-safeguarding">the authorising officer is also the safeguarding lead</a>. This question is only asked if it has been indicated the key contact is not an authorising officer.<br><br> Content needs to be updated</td>
+    </tr>
+
+<!--safeguarding-->
+
+<tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's name</th>
+      <td class="govuk-table__cell">The user is asked for the <a href="app-lead-spnr/safeguarding/name"> safeguarding lead's name</a> if:
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the key contact is not a safeguarding Lead</li>
+          <li>the authorising officer is not a safeguarding lead</li>
+        </ul> 
+      </td> 
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's other name</th>
+      <td class="govuk-table__cell">The user is asked if the authorising officer has been known by <a href="app-lead-spnr/safeguarding/alias-ques"> any other name</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Add Safeguarding lead's other name</th>
+      <td class="govuk-table__cell">If the key contact has been <a href="app-lead-spnr/safeguarding/add-alias">known by another name</a> the user is asked to add that name.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's date of birth</th>
+      <td class="govuk-table__cell">The key contact's <a href="app-lead-spnr/safeguarding/dob">date of birth</a> is added.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's nationality</th>
+      <td class="govuk-table__cell">The key contact's <a href="app-lead-spnr/safeguarding/nationality"> nationality</a> is selected from an autocomplete input field.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's passport</th>
+      <td class="govuk-table__cell">The user is asked if they are going to <a href="app-lead-spnr/safeguarding/ppt">upload an image the authorising officer's passport</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's passport number</th>
+      <td class="govuk-table__cell">Before the user uploads an image of the authorising officer's passport they are asked to add the <a href="app-lead-spnr/safeguarding/ppt-nbr"> passport number</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's driving licence</th>
+      <td class="govuk-table__cell">If the user indicates they will not upload an image of the authorising officer's passport they are asked if the authorising officer has a <a href="app-lead-spnr/safeguarding/driving">driving licence</a>, and if they will upload an image of it,</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's driving licence number</th>
+      <td class="govuk-table__cell">If the user confirms they will upload an image of the key contact's driving licence they are asked to add the <a href="app-lead-spnr/safeguarding/driving-nbr">driving licence number</a>.</td>
+    </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload safeguarding lead's identity document</th>
+      <td class="govuk-table__cell">If the user has indicated they will<a href="app-lead-spnr/safeguarding/upload-ppt"> upload an image of an identity document for the authorising officer</a> this screen is displayed.<br><br>The image will be either the authorising officer's passport or driving licence.</td>
+    </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Upload successful</th>
+      <td class="govuk-table__cell">Screen displayed confirming the <a href="app-lead-spnr/safeguarding/uploaded">upload of the identity document</a> has been successful uploaded for the authorising officer.<br><br>The image will be either the authorising officer's passport or driving licence.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Safeguarding lead's email</th>
+      <td class="govuk-table__cell">The user is required to add the authorising officer's <a href="app-lead-spnr/safeguarding/email">email</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Additional role check</th>
+      <td class="govuk-table__cell">It is possible for the key contact to perform more than one role. <br><br>The user is asked if <a href="app-lead-spnr/dupe-roles/key-ctc-safeguarding">the key contact is also the safeguarding lead</a>.</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">****Additional role check***</th>
+      <td class="govuk-table__cell">It is possible for the authorisor to perform more than one role. <br><br>The user is asked if <a href="app-lead-spnr/dupe-roles/authorisor-safeguarding">the authorising officer is also the safeguarding lead</a>. This question is only asked if it has been indicated the key contact is not an authorising officer.<br><br> Content needs to be updated</td>
+    </tr>
   </tbody>
 </table>
   </div>
