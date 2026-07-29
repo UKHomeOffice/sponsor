@@ -26,6 +26,7 @@ href: "javascript:window.history.back()"
 
     {{ govukRadios({
     name: "route",
+    value: data['route'],
     fieldset: {
     legend: {
     text: "",
@@ -35,11 +36,13 @@ href: "javascript:window.history.back()"
     items: [
     {
     value: "Study route~name",
-    text: "Study route"
+    text: "Study route",
+    checked: data['route']
     },
     {
     value: "Named route~name",
-    text: "Named route"
+    text: "Named route",
+    checked: data['route']
     }
     ]
     }) }}
